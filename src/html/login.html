@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acesso do Grupo - PKZ · One to One</title>
+    <link rel="stylesheet" href="../css/login.css">
+</head>
+<body>
+  <!-- Cabeçalho: logos e link de acesso -->
+  <header>
+    <div class="marcas">
+      <a href="index.html">
+        <img src="../../midias/logo-pkz.svg" alt="Logo PKZ">
+      </a>
+      <span>×</span>
+      <a href="index.html">
+        <img src="../../midias/logo-one-to-one.svg" alt="Logo One to One">
+      </a>
+    </div>
+
+    <nav>
+      <a href="index.html">Acesso do Grupo</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- Cartão de acesso: formulário de login -->
+    <section class="acesso">
+
+      <div id="login">
+        <h1 id="titulo-login">Bem-vindo de volta</h1>
+
+        <p>Acesse com o e-mail cadastrado no grupo PKZ · One to One.</p>
+
+        <form action="#" method="post">
+          <!-- label + input ligados pelo for/id -->
+          <label for="email">E-mail</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            required
+          >
+
+          <label for="senha">Senha</label>
+          <input
+            type="password"
+            id="senha"
+            name="senha"
+            required
+          >
+
+          <a href="#">Esqueci minha senha</a>
+
+          <!-- Mensagem de erro: fica vazia e só aparece quando o login falhar -->
+          <p id="mensagem-erro"></p>
+
+          <button type="submit" class="botao">Entrar</button>
+        </form>
+
+        <p>Não tem conta?</p>
+        <a href="cadastro.html" class="botao botao-secundario">Criar conta</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Rodapé -->
+  <footer>
+    <p>&copy; 2026 Grupo PKZ · One to One</p>
+  </footer>
+</body>
+</html>

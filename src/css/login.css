@@ -1,0 +1,211 @@
+/* ===== Variáveis ===== */
+/* Cores e fonte da página de login. Mude aqui e muda em tudo. */
+:root {
+  --cor-fundo: #f4f5f9;       /* fundo da página (cinza bem claro) */
+  --cor-header: #14063a;      /* fundo do header, footer e botão (roxo escuro) */
+  --cor-texto: #14063a;       /* cor dos títulos e textos principais */
+  --cor-suave: #55556a;       /* textos secundários (parágrafos, aba inativa) */
+  --cor-borda: #dcdce6;       /* bordas do cartão e dos campos */
+  --cor-link: #1f3f7a;        /* links (Esqueci minha senha, Criar cadastro) */
+  --cor-branco: #ffffff;
+  --cor-erro: #c0161c;        /* texto da mensagem de erro */
+  --fonte: "Inter", system-ui, sans-serif;
+}
+
+/* ===== Reset básico ===== */
+/* Remove os estilos padrão do navegador para começar do zero. */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* largura inclui padding e borda */
+}
+
+/* Estilo geral da página: header em cima, footer embaixo */
+body {
+  font-family: var(--fonte);
+  color: var(--cor-texto);
+  background-color: var(--cor-fundo);
+  line-height: 1.5;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Links sem sublinhado */
+a {
+  color: var(--cor-link);
+  text-decoration: none;
+}
+
+/* ===== Header ===== */
+/* Cabeçalho do topo: logos à esquerda e link à direita */
+header {
+  background-color: var(--cor-header);
+  padding: 20px 48px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Bloco das logos PKZ × One to One */
+.marcas {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  color: #b8b8c8;
+}
+
+/* Logos iguais às do index */
+.marcas img {
+  display: block;
+  width: auto;
+  height: 36px;
+  background: #ffffff;        /* fundo claro para a logo aparecer no header escuro */
+  padding: 2px 4px;
+}
+
+/* Link "Acesso do Grupo" */
+header nav a {
+  color: var(--cor-branco);
+  font-size: 0.9rem;
+}
+
+/* ===== Conteúdo principal ===== */
+/* main em flex centraliza o cartão na tela */
+main {
+  flex: 1; /* ocupa o espaço que sobra e empurra o footer para baixo */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 64px 24px;
+}
+
+/* ===== Cartão de acesso ===== */
+.acesso {
+  width: 100%;
+  max-width: 300px;
+  background-color: var(--cor-branco);
+  border: 1px solid var(--cor-borda);
+  border-radius: 12px;
+  padding: 28px;
+}
+
+/* Título "Bem-vindo de volta" */
+#titulo-login {
+  font-size: 1.3rem;
+  margin-bottom: 16px;
+}
+
+/* Parágrafos de apoio */
+#login p {
+  font-size: 0.75rem;
+  color: var(--cor-suave);
+}
+
+/* Parágrafo logo depois do título */
+#titulo-login + p {
+  margin: 0 0 20px;
+}
+
+/* ===== Formulário ===== */
+/* Campos empilhados em coluna */
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+input {
+  font-family: var(--fonte);
+  font-size: 0.8rem;
+  padding: 10px 12px;
+  border: 1px solid var(--cor-borda);
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+
+/* Link "Esqueci minha senha" */
+form a {
+  font-size: 0.7rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+/* ===== Botão ===== */
+/* Botão "Entrar" ocupando a largura toda do formulário */
+.botao {
+  font-family: var(--fonte);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--cor-branco);
+  background-color: var(--cor-header);
+  border: none;
+  border-radius: 6px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+/* Ao passar o mouse, o botão clareia um pouco */
+.botao:hover {
+  background-color: #2a1666;
+}
+
+/* ===== "Não tem conta? Criar conta" ===== */
+/* Frase e botão embaixo do formulário */
+form {
+  margin-bottom: 16px; /* espaço entre o botão Entrar e a frase de baixo */
+}
+
+form + p {
+  margin-bottom: 8px;
+}
+
+/* Botão "Criar conta": mesmo formato do Entrar, num roxo um pouco mais claro */
+.botao-secundario {
+  display: block;
+  text-align: center;
+  background-color: #3b2a85;
+}
+
+.botao-secundario:hover {
+  background-color: #4c3a9e;
+}
+
+/* ===== Mensagem de erro ===== */
+/* Começa vazia (não aparece). Quando o script escrever o erro,
+   o texto aparece em vermelho acima do botão Entrar. */
+#login #mensagem-erro {
+  color: var(--cor-erro);
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+/* ===== Footer ===== */
+footer {
+  background-color: var(--cor-header);
+  color: var(--cor-branco);
+  font-size: 0.65rem;
+  padding: 32px 48px;
+}
+
+/* ===== Celular ===== */
+/* Em telas pequenas, reduz espaçamentos */
+@media (max-width: 600px) {
+  header,
+  footer {
+    padding: 12px 16px;
+  }
+
+  main {
+    padding: 32px 16px;
+  }
+
+  .acesso {
+    max-width: 100%;
+  }
+}
