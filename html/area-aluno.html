@@ -15,8 +15,38 @@
     <link rel="stylesheet" href="..css/comum.css" />
     <link rel="stylesheet" href="..css/painel.css" />
     
-    <!-- Scripts (carregados com defer) -->
+    <!-- Scripts -->
     <script src="js/comum.js" defer></script>
     <script src="js/dados.js" defer></script>
     <script src="js/painel.js" defer></script>
   </head>
+
+  <body class="painel">
+    <!-- Link de acessibilidade -->
+    <a class="pular" href="#conteudo">Pular para o conteúdo</a>
+   
+    <!-- 2. MENU LATERAL DE NAVEGAÇÃO  -->
+    
+    <aside class="lateral">
+      
+      <a class="marcas" href="index.html" aria-label="Início do grupo PKZ e One to One"
+        ><img src="assets/logo-pkz.svg" alt="PKZ" /><span aria-hidden="true">×</span
+        ><img src="assets/logo-one-to-one.svg" alt="One to One"
+      /></a>
+
+      <!-- Menu de navegação interno -->
+      <nav aria-label="Área do aluno">
+        <a href="#inicio" aria-current="page">Início</a><a href="#agenda">Agenda</a
+        ><a href="#evolucao">Evolução</a><a href="#historico">Histórico</a
+        ><a href="#configuracoes">Configurações</a>
+      </nav>
+
+      <!-- Perfil do usuário -->
+      <div class="perfil">
+        <span class="avatar" id="perfil-inicial" aria-hidden="true">A</span>
+        <div><strong id="perfil-nome">Aluno</strong><span id="perfil-marca">PKZ</span></div>
+      </div>
+
+      <!-- Retorno ao site -->
+      <a class="link-claro" href="index.html">← Voltar ao site</a>
+    </aside>
