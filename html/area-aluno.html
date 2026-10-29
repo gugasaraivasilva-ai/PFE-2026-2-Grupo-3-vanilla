@@ -172,3 +172,20 @@
 
       <footer class="painel-rodape">© 2026 Grupo PKZ · One to One · Projeto acadêmico</footer>
     </main>
+
+    <!-- Modal oculto-->
+    <dialog id="relatorio-modal" aria-labelledby="relatorio-titulo">
+      <p class="etiqueta">RELATÓRIO DEMONSTRATIVO</p>
+      <h2 id="relatorio-titulo"></h2>
+      <p id="relatorio-data"></p>
+      <p id="relatorio-texto"></p>
+      <p class="aviso">
+        Dados fictícios para apresentação. Não representam uma avaliação ou prescrição real.
+      </p>
+      <div class="acoes">
+        <button type="button" class="botao secundario" data-fechar>Fechar</button>
+        <button type="button" class="botao" id="imprimir-relatorio">Imprimir / salvar PDF</button>
+      </div>
+    </dialog>
+  </body>
+</html>
