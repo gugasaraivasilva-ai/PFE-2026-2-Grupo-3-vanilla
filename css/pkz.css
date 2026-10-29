@@ -51,3 +51,17 @@
   object-fit: cover;
   border-radius: 7px;
 }
+
+.titulo-secao {
+  text-align: center;
+  margin-bottom: 36px;
+}
+
+.titulo-secao .etiqueta {
+  margin-bottom: 24px;
+}
+
+.titulo-secao > p:last-child:not(.etiqueta) {
+  color: var(--suave);
+  font-size: 0.9rem;
+}
