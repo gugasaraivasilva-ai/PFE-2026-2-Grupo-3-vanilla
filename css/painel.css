@@ -1,0 +1,143 @@
+.painel {
+  background: var(--fundo);
+}
+
+.lateral {
+  background: var(--marinho);
+  color: white;
+  padding: 24px 20px;
+}
+
+.lateral .marcas {
+  justify-content: center;
+  margin-bottom: 28px;
+}
+
+.lateral nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.lateral nav a {
+  padding: 10px 12px;
+  border-radius: 7px;
+  color: #c0c6d8;
+  font-size: 0.9rem;
+}
+
+.lateral nav a:hover,
+.lateral nav [aria-current] {
+  background: #00506a;
+  color: white;
+  text-decoration: none;
+}
+
+.perfil {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 28px 0 20px;
+  padding-top: 24px;
+  border-top: 1px solid #3a435e;
+}
+
+.perfil .avatar {
+  width: 40px;
+  height: 40px;
+  flex: none;
+  margin: 0;
+}
+
+.perfil strong {
+  display: block;
+  font-size: 0.9rem;
+  overflow-wrap: anywhere;
+}
+
+.perfil span:not(.avatar) {
+  color: #a9b6cc;
+  font-size: 0.8rem;
+}
+
+.painel-conteudo {
+  padding: 28px 20px;
+  min-width: 0;
+}
+
+.painel-topo {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.painel-topo > div {
+  min-width: 0;
+}
+
+.painel-detalhes {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.painel-topo h1 {
+  font-size: 1.65rem;
+  overflow-wrap: anywhere;
+}
+
+.painel-topo p {
+  margin: 3px 0 0;
+  font-size: 0.9rem;
+  color: var(--suave);
+}
+
+.resumo-grade {
+  display: grid;
+  gap: 16px;
+  margin: 28px 0;
+}
+
+.resumo-grade .cartao {
+  padding: 20px;
+}
+
+.resumo-grade p {
+  margin: 0 0 6px;
+  font-size: 0.82rem;
+}
+
+.resumo-grade strong {
+  font-size: 1.05rem;
+}
+
+.painel-conteudo h2 {
+  font-size: 1.1rem;
+}
+
+.painel-agenda,
+.painel-detalhes,
+.configuracoes {
+  margin-bottom: 28px;
+}
+
+.linha-titulo {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: center;
+}
+
+.linha-titulo a {
+  font-size: 0.88rem;
+}
+
+.selo {
+  padding: 3px 10px;
+  border-radius: 20px;
+  background: #def4e4;
+  color: #166b31;
+  font-size: 0.78rem;
+  font-weight: bold;
+}
