@@ -115,3 +115,57 @@ document.getElementById("sair").addEventListener("click", function () {
   }
   window.location.replace("login.html");
 });
+// Relatórios fictícios para demonstrar a interação prevista no Figma.
+const relatorios = [
+  {
+    titulo: "Treino individual — Perna",
+    data: "17/09/2026",
+    texto:
+      "Exemplo de registro: sessão acompanhada concluída. O aluno praticou os movimentos propostos e recebeu orientações de execução. Observação demonstrativa: acompanhar a evolução no próximo encontro.",
+  },
+  {
+    titulo: "Avaliação física",
+    data: "15/09/2026",
+    texto:
+      "Exemplo de registro: avaliação inicial e conversa sobre rotina e objetivos. Os resultados reais seriam preenchidos pela equipe responsável. Este documento não contém medidas clínicas reais.",
+  },
+  {
+    titulo: "Treino individual — Superior",
+    data: "12/09/2026",
+    texto:
+      "Exemplo de registro: sessão individual com acompanhamento técnico. Observação demonstrativa: manter a regularidade e revisar os objetivos com o profissional.",
+  },
+];
+for (const botao of document.querySelectorAll("[data-relatorio]")) {
+  botao.addEventListener("click", function () {
+    const relatorio = relatorios[Number(botao.dataset.relatorio)];
+    document.getElementById("relatorio-titulo").textContent = relatorio.titulo;
+    document.getElementById("relatorio-data").textContent =
+      relatorio.data + " · " + perfilAluno.nome;
+    document.getElementById("relatorio-texto").textContent = relatorio.texto;
+    document.getElementById("relatorio-modal").showModal();
+  });
+}
+document.getElementById("imprimir-relatorio").addEventListener("click", function () {
+  document.body.classList.add("imprimindo");
+  window.print();
+});
+window.addEventListener("afterprint", function () {
+  document.body.classList.remove("imprimindo");
+});
+document.getElementById("relatorio-modal").addEventListener("close", function () {
+  document.body.classList.remove("imprimindo");
+});
+for (const link of document.querySelectorAll(".lateral nav a")) {
+  link.addEventListener("click", function () {
+    for (const outro of document.querySelectorAll(".lateral nav a"))
+      outro.removeAttribute("aria-current");
+    link.setAttribute("aria-current", "page");
+  });
+}
+window.addEventListener("storage", function () {
+  if (perfilAluno) mostrarAgendaAluno();
+});
+window.addEventListener("pageshow", function () {
+  if (!lerSessao()) window.location.replace("login.html");
+});
