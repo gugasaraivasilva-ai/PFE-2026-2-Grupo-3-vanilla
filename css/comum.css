@@ -121,3 +121,191 @@ small {
   color: var(--marinho);
   transform: translateY(-180%);
 }
+.pular:focus {
+  transform: none;
+}
+
+.visualmente-oculto {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.cabecalho {
+  color: white;
+  background: var(--marinho);
+}
+
+.topo {
+  min-height: 84px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  position: relative;
+  flex-wrap: wrap;
+  padding: 12px 0;
+}
+
+.topo > .link-claro {
+  flex: 1;
+  min-width: 0;
+  text-align: right;
+}
+
+.marcas {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-shrink: 0;
+}
+
+.marcas img {
+  background: white;
+  padding: 2px;
+  border-radius: 2px;
+  width: auto;
+  max-width: 82px;
+  height: 34px;
+}
+
+.marcas span {
+  color: #a8afc5;
+}
+
+.marca img {
+  background: white;
+  padding: 3px;
+  border-radius: 2px;
+  height: 38px;
+  width: auto;
+  max-width: 130px;
+}
+
+.menu-botao {
+  border: 1px solid #8490a6;
+  border-radius: 6px;
+  color: white;
+  background: transparent;
+  padding: 6px 12px;
+  font-size: 1.4rem;
+}
+
+.menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  left: 0;
+  z-index: 20;
+  padding: 18px;
+  background: var(--marinho);
+  border-radius: 0 0 8px 8px;
+}
+
+.menu.aberto {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 18px;
+}
+
+.menu a {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+  font-size: 0.9rem;
+}
+
+.menu-botao {
+  flex-shrink: 0;
+}
+
+.botao {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  min-height: 44px;
+  padding: 11px 22px;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  background: var(--principal);
+  color: white;
+  font-size: 0.9rem;
+  font-weight: bold;
+  text-align: center;
+  cursor: pointer;
+}
+
+.botao:hover {
+  filter: brightness(1.12);
+  text-decoration: none;
+}
+
+.botao.claro {
+  background: white;
+  color: var(--marinho);
+}
+
+.botao.azul {
+  background: #006285;
+  color: white;
+}
+
+.botao.escuro {
+  background: var(--marinho);
+  color: white;
+}
+
+.botao.secundario {
+  background: white;
+  border-color: var(--borda);
+  color: var(--principal);
+}
+
+.botao.perigo {
+  background: #a62632;
+}
+
+.acoes {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.link-claro {
+  color: white;
+  font-size: 0.9rem;
+}
+
+.texto-link,
+.link-botao {
+  color: var(--azul);
+  font-weight: bold;
+}
+
+.link-botao {
+  display: inline-block;
+  padding: 8px 0;
+  background: transparent;
+  border: 0;
+  font-size: 0.9rem;
+  text-align: left;
+}
+
+.link-botao:hover,
+.texto-link:hover {
+  text-decoration: underline;
+}
+
+.rodape {
+  background: var(--marinho);
+  color: #bec5d9;
+  padding: 32px 0;
+}
