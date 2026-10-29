@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Portal PKZ e One to One: treinamento, acompanhamento e agendamento de aulas."
+    />
+    <title>Agendamento | PKZ · One to One</title>
+    <link rel="icon" href="assets/logo-pkz.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="..css/comum.css" />
+    <link rel="stylesheet" href="..css/agendamento.css" />
+    <script src="js/comum.js" defer></script>
+    <script src="js/dados.js" defer></script>
+    <script src="js/agendamento.js" defer></script>
+  </head>
+  <body class="agenda-pagina">
+    <a class="pular" href="#conteudo">Pular para o conteúdo</a>
+    <header class="cabecalho">
+      <div class="container topo">
+        <a class="marcas" href="index.html" aria-label="Início do grupo PKZ e One to One"
+          ><img src="assets/logo-pkz.svg" alt="PKZ" /><span aria-hidden="true">×</span
+          ><img src="assets/logo-one-to-one.svg" alt="One to One" /></a
+        ><a class="link-claro" href="index.html">Acesso do Grupo</a>
+      </div>
+    </header>
+    <main id="conteudo" class="container agenda-container">
+      <a id="voltar-marca" class="texto-link" href="pkz.html">← Voltar para a marca</a>
+      <p class="etiqueta" id="nome-marca">PKZ</p>
+      <h1>Agende sua aula experimental</h1>
+      <p>Escolha um horário disponível. A primeira conversa começa aqui.</p>
+      <p class="aviso">
+        Agenda demonstrativa: reservas salvas apenas neste navegador, sem envio à equipe. Horários
+        exibidos no horário local do dispositivo. Para agendar de verdade, confirme pelo
+        <a
+          id="whatsapp-agenda"
+          class="texto-link"
+          href="https://wa.me/5521972657266"
+          target="_blank"
+          rel="noopener noreferrer"
+          >WhatsApp da marca ↗</a
+        >.
+      </p>
+      <!-- A tabela permite consultar a semana atual e as três seguintes. -->
+      <section class="cartao agenda-cartao" aria-labelledby="semana-texto">
+        <div class="agenda-topo">
+          <button type="button" class="botao secundario" id="anterior">← Anterior</button>
+          <h2 id="semana-texto"></h2>
+          <button type="button" class="botao secundario" id="proxima">Próxima →</button>
+        </div>
+        <p class="legenda"><span>● Livre</span><span>Reservado</span><span>Encerrado</span></p>
+        <p class="ajuda-mobile">No celular, deslize a tabela para ver os outros dias.</p>
+        <div
+          class="tabela-rolagem"
+          tabindex="0"
+          role="region"
+          aria-label="Horários disponíveis: tabela com rolagem horizontal"
+        >
+          <table id="grade">
+            <caption class="visualmente-oculto">
+              Horários da semana
+            </caption>
+          </table>
+        </div>
+        <p id="status-agenda" class="mensagem" role="status" aria-live="polite"></p>
+      </section>
+      <section class="cartao minhas-reservas" aria-labelledby="reservas-titulo">
+        <h2 id="reservas-titulo">Reservas neste navegador</h2>
+        <p>Consulte ou cancele os agendamentos de teste desta marca.</p>
+        <div id="lista-reservas"></div>
+      </section>
+      <details class="dados-teste">
+        <summary>Dados da demonstração</summary>
+        <p>Use esta área para conferir o armazenamento local durante a apresentação.</p>
+        <button
+          class="botao secundario"
+          id="ver-dados"
+          type="button"
+          aria-expanded="false"
+          aria-controls="dados-json"
+        >
+          Ver dados salvos
+        </button>
+        <pre id="dados-json" hidden></pre>
+        <button class="link-botao" id="limpar-reservas" type="button">
+          Limpar reservas desta marca
+        </button>
+      </details>
+      <a class="texto-link" id="abrir-area" href="area-aluno.html">Ir para a área do aluno →</a>
+    </main>
+    <dialog id="reserva-modal" aria-labelledby="reserva-titulo">
+      <form id="reserva-form">
+        <h2 id="reserva-titulo">Confirmar horário</h2>
+        <p id="resumo-horario"></p>
+        <label for="reserva-nome">Nome do aluno ou responsável</label
+        ><input
+          id="reserva-nome"
+          name="nome"
+          required
+          minlength="2"
+          maxlength="80"
+          autocomplete="name"
+        />
+        <label for="reserva-email">E-mail</label
+        ><input
+          id="reserva-email"
+          name="email"
+          type="email"
+          required
+          maxlength="120"
+          autocomplete="email"
+        />
+        <label for="reserva-telefone">Telefone com DDD</label
+        ><input
+          id="reserva-telefone"
+          name="telefone"
+          type="tel"
+          required
+          maxlength="22"
+          autocomplete="tel"
+          placeholder="(21) 99999-9999"
+        />
+        <p id="erro-reserva" class="erro mensagem" role="alert"></p>
+        <div class="acoes">
+          <button class="botao secundario" type="button" data-fechar>Voltar</button
+          ><button type="submit" class="botao">Confirmar reserva</button>
+        </div>
+      </form>
+    </dialog>
+    <dialog id="confirmar-exclusao" aria-labelledby="exclusao-titulo">
+      <h2 id="exclusao-titulo">Cancelar reserva?</h2>
+      <p id="exclusao-texto"></p>
+      <div class="acoes">
+        <button class="botao secundario" type="button" data-fechar>Manter</button
+        ><button class="botao perigo" type="button" id="excluir-confirmado">Confirmar</button>
+      </div>
+    </dialog>
+    <footer class="rodape">
+      <div class="container">
+        <small>© 2026 Grupo PKZ · One to One · Projeto acadêmico IBMEC</small
+        ><a href="index.html">Voltar ao início</a>
+      </div>
+    </footer>
+  </body>
+</html>
