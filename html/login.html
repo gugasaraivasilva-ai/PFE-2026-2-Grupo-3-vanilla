@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Portal PKZ e One to One: treinamento, acompanhamento e agendamento de aulas."
+    />
+    <title>Área do Atleta | PKZ · One to One</title>
+    <link rel="icon" href="assets/logo-pkz.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="..css/comum.css" />
+    <link rel="stylesheet" href="..css/login.css" />
+    <script src="js/comum.js" defer></script>
+    <script src="js/dados.js" defer></script>
+    <script src="js/conta.js" defer></script>
+  </head>
+  <body class="conta">
+    <a class="pular" href="#conteudo">Pular para o conteúdo</a>
+    <header class="cabecalho">
+      <div class="container topo">
+        <a class="marcas" href="index.html" aria-label="Início do grupo PKZ e One to One"
+          ><img src="assets/logo-pkz.svg" alt="PKZ" /><span aria-hidden="true">×</span
+          ><img src="assets/logo-one-to-one.svg" alt="One to One" /></a
+        ><a class="link-claro" href="index.html">Acesso do Grupo</a>
+      </div>
+    </header>
+    <main id="conteudo" class="acesso-container">
+      <section class="acesso cartao" aria-labelledby="titulo-login">
+        <nav class="abas" aria-label="Acesso">
+          <a href="login.html" data-marca-link aria-current="page">Entrar</a>
+        </nav>
+        <h1 id="titulo-login">Bem-vindo de volta</h1>
+        <p>Acesse com o e-mail cadastrado no grupo PKZ · One to One.</p>
+        <form id="login-form">
+          <label for="email">E-mail</label
+          ><input
+            id="email"
+            name="email"
+            type="email"
+            autocomplete="username"
+            required
+            maxlength="120"
+          />
+          <label for="senha">Senha</label
+          ><input
+            id="senha"
+            name="senha"
+            type="password"
+            autocomplete="current-password"
+            required
+            maxlength="100"
+          />
+          <button class="link-botao" id="recuperar" type="button">Esqueci minha senha</button>
+          <p id="erro-conta" class="mensagem erro" role="alert"></p>
+          <button class="botao" type="submit">Entrar</button>
+        </form>
+        <aside class="aviso">
+          <strong>Modo de apresentação</strong>
+          <p>
+            Use aluno@demo.com e a senha demo123. Este acesso não é uma autenticação real.
+          </p>
+          <button type="button" id="preencher-demo" class="link-botao">
+            Preencher acesso de demonstração
+          </button>
+        </aside>
+      </section>
+    </main>
+    <dialog id="recuperacao" aria-labelledby="recuperacao-titulo">
+      <h2 id="recuperacao-titulo">Recuperar acesso</h2>
+      <p>
+        Este protótipo não envia e-mails de recuperação. Para testar, use a conta de demonstração:
+        aluno@demo.com / demo123. Para atendimento real, entre em contato com a equipe.
+      </p>
+      <button type="button" class="botao" data-fechar>Entendi</button>
+    </dialog>
+    <footer class="rodape">
+      <div class="container">
+        <small>© 2026 Grupo PKZ · One to One · Projeto acadêmico IBMEC</small
+        ><a href="index.html">Voltar ao início</a>
+      </div>
+    </footer>
+  </body>
+</html>
