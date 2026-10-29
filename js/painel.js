@@ -72,3 +72,46 @@ function mostrarAgendaAluno() {
     );
   }
 }
+perfilForm.addEventListener("submit", function (evento) {
+  evento.preventDefault();
+  const nome = perfilForm.nome.value.trim();
+  const mensagem = document.getElementById("status-perfil");
+  if (nome.length < 2) {
+    mensagem.textContent = "Informe um nome com pelo menos dois caracteres.";
+    return;
+  }
+  try {
+    const atualizado = {
+      nome: nome,
+      email: perfilAluno.email,
+      marca: perfilForm.marca.value,
+      demo: perfilAluno.demo,
+    };
+    if (!perfilAluno.demo) {
+      const contas = lerLista("contas");
+      for (const conta of contas) {
+        if (conta.email === perfilAluno.email) {
+          conta.nome = nome;
+          conta.marca = atualizado.marca;
+        }
+      }
+      salvarLista("contas", contas);
+    }
+    salvarSessao(atualizado);
+    perfilAluno = atualizado;
+    atualizarPainel();
+    mensagem.textContent = "Alterações salvas.";
+  } catch (erro) {
+    mensagem.textContent =
+      "Não foi possível salvar as alterações. Verifique o armazenamento do navegador.";
+  }
+});
+
+document.getElementById("sair").addEventListener("click", function () {
+  try {
+    sessionStorage.removeItem(prefixo + "sessao");
+  } catch (erro) {
+    /* A sessão já pode estar indisponível. */
+  }
+  window.location.replace("login.html");
+});
