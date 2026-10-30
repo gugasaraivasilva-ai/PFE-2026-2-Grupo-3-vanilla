@@ -65,3 +65,38 @@
   color: var(--suave);
   font-size: 0.9rem;
 }
+
+.tres-colunas .cartao p,
+.quatro-colunas .cartao p {
+  font-size: 0.9rem;
+}
+
+.numero {
+  display: inline-flex;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  background: var(--principal);
+  font-weight: bold;
+  margin-bottom: 18px;
+}
+
+.quatro-colunas .cartao {
+  border-color: transparent;
+}
+
+.galeria img {
+  width: 100%;
+  aspect-ratio: 1.8;
+  object-fit: cover;
+  border-radius: 9px;
+}
+
+.galeria figcaption {
+  font-size: 0.8rem;
+  color: var(--suave);
+  padding-top: 8px;
+}
