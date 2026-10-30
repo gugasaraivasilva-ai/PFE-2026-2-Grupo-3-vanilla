@@ -1,6 +1,6 @@
 "use strict";
 
-// Funções pequenas usadas pela conta, agenda e área do aluno.
+// Funções pequenas usadas pela agenda.
 // O prefixo evita misturar os dados deste projeto com os de outros sites.
 const prefixo = "grupo-pkz-oto-v1-";
 
@@ -23,26 +23,6 @@ function marcaDaPagina() {
 
 function nomeDaMarca(marca) {
   return marca === "oto" ? "One to One" : "PKZ";
-}
-
-function lerSessao() {
-  try {
-    const sessao = JSON.parse(sessionStorage.getItem(prefixo + "sessao"));
-    if (
-      sessao &&
-      typeof sessao.nome === "string" &&
-      typeof sessao.email === "string" &&
-      (sessao.marca === "pkz" || sessao.marca === "oto")
-    )
-      return sessao;
-  } catch (erro) {
-    // Sem uma sessão válida, o usuário volta para o login.
-  }
-  return null;
-}
-
-function salvarSessao(perfil) {
-  sessionStorage.setItem(prefixo + "sessao", JSON.stringify(perfil));
 }
 
 function formatarData(data) {

@@ -368,19 +368,6 @@ small {
   color: var(--suave);
 }
 
-.avatar {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 56px;
-  height: 56px;
-  background: #e1e4eb;
-  color: #3f5065;
-  border-radius: 50%;
-  margin-bottom: 12px;
-  font-weight: bold;
-}
-
 form {
   display: flex;
   flex-direction: column;

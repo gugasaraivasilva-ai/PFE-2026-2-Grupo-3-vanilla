@@ -5,6 +5,8 @@ const marcaAgenda = marcaDaPagina();
 const diasAgenda = ["Seg", "Ter", "Qua", "Qui", "Sex", "Sáb"];
 const horasAgenda = [7, 8, 9, 10, 11, 17, 18, 19, 20];
 let semanaAgenda = 0;
+// No celular a tabela mostra um dia por vez. Começamos pelo dia de hoje (domingo vira segunda).
+let diaMobile = Math.min((new Date().getDay() + 6) % 7, diasAgenda.length - 1);
 let inicioEscolhido = 0;
 let exclusaoEscolhida = "";
 let focoReserva = null;
@@ -20,6 +22,7 @@ const anterior = document.getElementById("anterior");
 const proxima = document.getElementById("proxima");
 const listaReservas = document.getElementById("lista-reservas");
 const dadosJson = document.getElementById("dados-json");
+const diasMobile = document.getElementById("dias-mobile");
 
 const nomeMarcaAgenda = nomeDaMarca(marcaAgenda);
 document.getElementById("nome-marca").textContent = nomeMarcaAgenda;
@@ -29,7 +32,6 @@ document.getElementById("voltar-marca").href =
 document.getElementById("whatsapp-agenda").href =
   "https://wa.me/" + (marcaAgenda === "oto" ? "5521971067347" : "5521972657266");
 if (marcaAgenda === "oto") document.body.classList.add("oto");
-if (!lerSessao()) document.getElementById("abrir-area").href = "login.html?marca=" + marcaAgenda;
 
 // 2. Datas são montadas com números, evitando confusão entre dia e mês.
 function dataDaAgenda(posicao, hora) {
@@ -60,11 +62,6 @@ function abrirReserva(inicio, botao) {
   reservaForm.reset();
   document.getElementById("resumo-horario").textContent =
     nomeMarcaAgenda + " · " + resumoReserva({ inicio: inicio });
-  const sessao = lerSessao();
-  if (sessao) {
-    reservaForm.nome.value = sessao.nome;
-    reservaForm.email.value = sessao.email;
-  }
   reservaModal.showModal();
 }
 
@@ -129,8 +126,25 @@ function mostrarAgenda() {
     corpo.appendChild(linha);
   }
   grade.appendChild(corpo);
+  mostrarDiasMobile();
   mostrarReservas();
   dadosJson.textContent = JSON.stringify(reservasAgenda, null, 2);
+}
+
+function mostrarDiasMobile() {
+  grade.dataset.dia = String(diaMobile);
+  diasMobile.replaceChildren();
+  for (let dia = 0; dia < diasAgenda.length; dia++) {
+    const botao = criarTexto("button", diasAgenda[dia]);
+    botao.type = "button";
+    botao.setAttribute("aria-pressed", String(dia === diaMobile));
+    botao.appendChild(criarTexto("small", formatarData(dataDaAgenda(dia, 0)).slice(0, 5)));
+    botao.addEventListener("click", function () {
+      diaMobile = dia;
+      mostrarDiasMobile();
+    });
+    diasMobile.appendChild(botao);
+  }
 }
 
 function mostrarReservas() {
@@ -178,10 +192,12 @@ function mostrarReservas() {
 
 anterior.addEventListener("click", function () {
   if (semanaAgenda > 0) semanaAgenda--;
+  diaMobile = 0;
   mostrarAgenda();
 });
 proxima.addEventListener("click", function () {
   if (semanaAgenda < 3) semanaAgenda++;
+  diaMobile = 0;
   mostrarAgenda();
 });
 

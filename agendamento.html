@@ -9,11 +9,11 @@
     />
     <title>Agendamento | PKZ · One to One</title>
     <link rel="icon" href="assets/logo-pkz.svg" type="image/svg+xml" />
-    <link rel="stylesheet" href="..css/comum.css" />
-    <link rel="stylesheet" href="..css/agendamento.css" />
-    <script src="js/comum.js" defer></script>
-    <script src="js/dados.js" defer></script>
-    <script src="js/agendamento.js" defer></script>
+    <link rel="stylesheet" href="comum.css" />
+    <link rel="stylesheet" href="agendamento.css" />
+    <script src="comum.js" defer></script>
+    <script src="dados.js" defer></script>
+    <script src="agendamento.js" defer></script>
   </head>
   <body class="agenda-pagina">
     <a class="pular" href="#conteudo">Pular para o conteúdo</a>
@@ -22,7 +22,7 @@
         <a class="marcas" href="index.html" aria-label="Início do grupo PKZ e One to One"
           ><img src="assets/logo-pkz.svg" alt="PKZ" /><span aria-hidden="true">×</span
           ><img src="assets/logo-one-to-one.svg" alt="One to One" /></a
-        ><a class="link-claro" href="index.html">Acesso do Grupo</a>
+        ><a class="link-claro" href="index.html">Voltar ao início</a>
       </div>
     </header>
     <main id="conteudo" class="container agenda-container">
@@ -50,7 +50,7 @@
           <button type="button" class="botao secundario" id="proxima">Próxima →</button>
         </div>
         <p class="legenda"><span>● Livre</span><span>Reservado</span><span>Encerrado</span></p>
-        <p class="ajuda-mobile">No celular, deslize a tabela para ver os outros dias.</p>
+        <div class="dias-mobile" id="dias-mobile" role="group" aria-label="Escolha o dia"></div>
         <div
           class="tabela-rolagem"
           tabindex="0"
@@ -87,7 +87,6 @@
           Limpar reservas desta marca
         </button>
       </details>
-      <a class="texto-link" id="abrir-area" href="area-aluno.html">Ir para a área do aluno →</a>
     </main>
     <dialog id="reserva-modal" aria-labelledby="reserva-titulo">
       <form id="reserva-form">
